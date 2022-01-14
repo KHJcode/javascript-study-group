@@ -4,7 +4,7 @@
 
 <br/>
 
-# 어디에 쓰는데?
+## 어디에 쓰는데?
 
 상속 받은 클래스에서 부모 객체를 반환할 수 있습니다.
 
@@ -30,7 +30,7 @@ true
 
 <br/>
 
-# 뭐가 좋은데?
+## 뭐가 좋은데?
 
 자바스크립트 엔진에서는 더 빠른 속도를 위해 C++ 과 같은 호스트 언어로 메소드(사용자가 정의한 것이 아닌 내장된 것)를 구현하기도 합니다.
 
@@ -38,7 +38,7 @@ true
 
 <br/>
 
-# 참고 문서
+## 참고 문서
 
 - https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/#symbolspecies
 - https://devdocs.io/javascript/global_objects/array/@@species
