@@ -14,6 +14,5 @@ $ node script.js
 
 ## Contributors
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=KHJcode/javascript-study-group"/>
-</a>
+- [KHJcode](https://github.com/KHJcode)
+- [jewonr](https://github.com/jewonr)
