@@ -116,3 +116,6 @@ console.log(arrOfNum.length) // 5
 
 배열의 길이는 먼저 늘리거나 줄인다면, 이에 맞춰 빈공간이 생기거나 요소가 삭제된다.
 
+## 참고 문서
+
+- https://devdocs.io/javascript/global_objects/array
