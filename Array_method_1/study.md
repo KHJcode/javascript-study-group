@@ -56,3 +56,9 @@ const found = array1.find(element => element > 10);
 
 console.log(found); // 12
 ```
+
+## 참고 문서
+
+- https://devdocs.io/javascript/global_objects/array/concat
+- https://devdocs.io/javascript/global_objects/array/copywithin
+- https://devdocs.io/javascript/global_objects/array/find
