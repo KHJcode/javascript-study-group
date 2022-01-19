@@ -31,6 +31,8 @@ with (egg) {
 ReferenceError: white is not defined
 ```
 
+<br/>
+
 그러나 Strict 모드에서는 `with` 를 사용할 수 없기 때문에 `Symbol.unscopables` 도 필요하지 않을 수 있습니다.
 
 <br/>
@@ -45,3 +47,5 @@ ReferenceError: white is not defined
 
 - https://www.geeksforgeeks.org/javascript-symbol-unscopables-properties
 - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/with
+- https://devdocs.io/javascript/global_objects/symbol/unscopables
+- https://www.demo2s.com/javascript/javascript-well-known-symbol-symbol-unscopables.html
