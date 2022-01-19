@@ -116,6 +116,19 @@ console.log(arrOfNum.length) // 5
 
 배열의 길이는 먼저 늘리거나 줄인다면, 이에 맞춰 빈공간이 생기거나 요소가 삭제된다.
 
+## 배열의 복사와 참조
+
+```jsx
+let array1 = [1,2,3]
+let array1Reference = array1;
+array1[1] = 9;
+console.log(array1Reference); // Array [1,9,3]
+```
+
+새 배열의 기존 배열을 대입하는 것은 배열을 복사하는 것이 아니라 참조하는 것이다.
+따라서 기존 배열의 요소를 바꾼다면 새 배열도 같이 값이 바뀌게 된다.
+
 ## 참고 문서
 
 - https://devdocs.io/javascript/global_objects/array
+
