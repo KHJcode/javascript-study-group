@@ -116,3 +116,7 @@ obj[key] = true;
 ```
 
 위와 같은 방식은 점 표기법에서는 불가능하다. 
+
+## 참고 문서
+
+- https://ko.javascript.info/object#ref-807
