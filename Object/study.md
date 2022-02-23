@@ -107,7 +107,7 @@ obj["hello world"] = true;
 console.log(obj["hello world"]);
 ```
 
-추가로, 대괄호 표기법은 특정 문자열을 먼저 변수에 받아 이 변수를 사용하여 프로퍼티에 접근하는 가능하다.
+추가로, 대괄호 표기법은 특정 문자열을 먼저 변수에 받아 이 변수를 사용하여 프로퍼티에 접근하는 것도 가능하다.
 
 ```jsx 
 let key = "hello world"
@@ -115,7 +115,93 @@ let key = "hello world"
 obj[key] = true;
 ```
 
-위와 같은 방식은 점 표기법에서는 불가능하다. 
+또한, 프로퍼티에 문자열 표현식을 적용할 수 있다.
+
+```jsx
+let name = 'jewon'
+let student = {
+  [name + "'s number"]: 8
+};
+```
+
+위와 같은 방식은 점 표기법에서는 불가능하다.
+
+## 단축 프로퍼티
+
+프로퍼티 값으로 받아온 변수와 프로퍼티 이름이 같다면, 생략해서 사용할 수 있다. 
+
+```jsx
+function makeUser(name, age) {
+  return {
+    name, // 생략함
+    age, // 생략함
+  }
+}
+
+let user1 = makeUser("jewon", 18)
+```
+
+## 프로퍼티 존재 여부 확인하기
+
+자바스크립트는 존재하지 않는 프로퍼티에 접근하려 해도 오류가 발생하지 않고, undefined를 반환한다.
+
+이를 활용하여 프로퍼티의 존재 여부를 확인할 수 있다.
+
+```jsx
+let user = {};
+
+alert(user.name === undefined); // true
+```
+
+하지만 프로퍼티 값이 undefined 라면, 위의 방법으로는 존재 여부를 판별할 수 없다. 
+
+이러한 경우를 모두 정상적으로 처리하게 위해 in 연산자를 사용하여 확인한다. 
+
+```jsx
+let user = {
+  name: undefined
+};
+
+alert(user.name) // undefined 출력, 프로퍼티 값이 undefined 인지 프로퍼티가 존재하지 않는지 판별할 수 없다.
+
+alert(name in user) // true, 프로퍼티의 유무를 확인할 수 있다.
+```
+
+## for...in 반복문으로 객체 순회하기
+
+```jsx
+let person = {
+  name: "hyungjin",
+  age: 18,
+  isAlive: false
+}
+
+for (let key in person) {
+  alert(key);
+  alert(person[key]);
+}
+```
+
+반복문의 매개변수에는 객체의 키 값이 차례대로 들어온다. 이를 통해 객체의 프로퍼티와 값에 순차적으로 접근할 수 있다. 
+
+만약 프로퍼티가 정수 프로퍼티일 경우에는 자동으로 오름차순으로 정렬된다. 
+
+```jsx
+let codes = {
+  "49": "독일",
+  "41": "스위스",
+  "44": "영국",
+  "1": "미국"
+};
+
+for (let code in codes) {
+  alert(code); // 1, 41, 44, 49
+}
+```
+
+여기서 정수 프로퍼티란 정수와 문자열 간 자유롭게 이동될 수 있는 문자열을 말한다. 
+
+"2", "3" 등은 정수 프로퍼티에 해당되지만, "+4", "5.6" 은 해당되지 않는다.
 
 ## 참고 문서
 
