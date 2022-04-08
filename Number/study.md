@@ -70,6 +70,101 @@ console.log(Math.floor(num * 100) / 100 );  // 1.23456 -> 123.456 -> 123 -> 1.23
 
 <br/>
 
+## 부정확한 계산
+
+숫자는 내부적으로 64비트 형식 [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754-2008_revision)으로 표현되기 때문에 숫자를 저장하려면 정확히 64비트가 필요합니다.
+
+그러나 숫자가 너무 커질 경우 64비트 공간이 넘쳐서 **Infinity**로 처리됩니다.
+
+```js
+console.log(1e500);  // Infinity
+```
+
+### 정밀도 손실
+
+아래 코드처럼 부정확한 연산이 발생합니다!
+
+```js
+console.log(0.1 + 0.2);  // 0.30000000000000004
+```
+
+<br/>
+
+**Q. 왜 이런 일이 발생할까요?**
+
+숫자는 이진수로 변환되어 연속된 메모리 공간에 저장됩니다.
+그러나 `0.1`, `0,2` 같은 분수는 이진법으로 표현하면 무한 소수가 되기 때문에 이를 정확하게 저장하는 방법은 없습니다.
+
+따라서 `IEEE-754` 에서는 가능한 가장 가까운 숫자로 반올림하는 방법을 이용하여 이런 문제를 해결합니다. 그러나 이 방법도 아주 작은 손실이 발생합니다.
+
+```js
+console.log(0.1.toFixed(20));  // 0.10000000000000000555
+```
+
+물론 동일한 숫자 형식을 사용하는 `PHP, Java, C, Ruby` 등의 언어에서도 같은 이슈가 있습니다.
+
+<br/>
+
+이를 해결하기 위한 가장 신뢰할만한 방법은 `toFixed` 메서드를 사용하여 어림수를 만드는 것입니다.
+
+```js
+const sum = 0.1 + 0.2;
+console.log(sum.toFixed(2));  // 0.3
+```
+
+<br/>
+
+## NaN, Infinity
+
+**NaN**: 에러를 나타내는 값.
+
+`NaN`은 `NaN` 자기 자신을 포함하여 그 어떤 값과도 같지 않습니다.
+
+```js
+console.log(NaN === NaN);  // false
+```
+
+`isNaN` 메소드는 인수를 숫자로 변환한 다음 `NaN` 인지 판단합니다.
+
+```js
+console.log(isNaN(NaN));  // true
+console.log(isNaN("str"));  // true
+```
+
+<br/>
+
+**Infinity, -Infinity**: 그 어떤 숫자보다 큰 혹은 작은 특수 숫자 값.
+
+`isFinite` 메소드는 인수를 숫자로 변환하고 변환한 숫자가 `NaN / (-)Infinity`가 아닌 일반 숫자인 경우 `true` 를 반환합니다.
+
+```js
+console.log(isFinite("15"));  // true
+console.log(isFinite("str"));  // false
+console.log(isFinite(Infinity));  // false
+```
+
+<br/>
+
+## parseInt, parseFloat
+
+**숫자형 변환**
+
+```js
+console.log(Number("100px"));  // NaN
+console.log(+"100px");  // NaN
+console.log(parseInt("100px"));  // 100
+```
+
+**실수형 변환**
+
+두 번째 점에서 숫자 읽기를 멈춥니다.
+
+```js
+console.log(parseFloat('12.3.4'));  // 12.3
+```
+
+<br/>
+
 ## 참고 문서
 
 - https://ko.javascript.info/number
