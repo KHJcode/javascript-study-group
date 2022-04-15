@@ -139,3 +139,8 @@ let user = {
 
 user.sayHi(); // Na
 ```
+
+## 참고 문서
+
+- https://ko.javascript.info/object-methods
+
