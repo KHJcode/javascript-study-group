@@ -133,4 +133,4 @@ console.log(str);  // hi
 
 ## 참고 문서
 
-- https://ko.javascript.info/string#ref-374
+- https://ko.javascript.info/string
