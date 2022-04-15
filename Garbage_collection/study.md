@@ -83,3 +83,4 @@ family = null;
 ## 참고 문서
 
 - https://ko.javascript.info/garbage-collection
+  
